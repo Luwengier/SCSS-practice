@@ -1,0 +1,125 @@
+// Variable - 變數 -
+$width: 100%;
+$buttonNumber: 6;
+$baseLineHeight: 12px;
+
+$baseSize: 12px;
+$baseLineSize: 10px;
+$sizeLevel: 4px;
+$paddingLevel: 1.2;
+
+// Extend 繼承
+// 以 % 為開頭，在不會被轉譯，可用來專門被繼承之用。
+// 使用 @extend 來繼承樣式的元件，會統一放在被繼承樣式的地方。
+%defaultButton {
+  display: block;
+  text-decoration: none;
+}
+
+// Function - 函式 -
+@function line($count: 1) {
+  @return $baseLineHeight * $count;
+}
+
+@function font($level: 0) { 
+  @if $level < 0 {
+    $level: 0;
+  }
+  @return $baseSize + $sizeLevel * round($level);
+}
+
+@function rhythm($size) {
+  @return ceil($size * $paddingLevel / $baseLineSize) * $baseLineSize;
+}
+
+// MiXin - 混用 -
+// 在 mixin 內也可搭配使用 function。
+@mixin font($level: 1, $line-height: auto) {
+  $size: font($level);
+  $line: rhythm($size);
+
+  font-size: $size;
+  @if $line-height == auto or $line-height < $line {
+    line-height: $line;
+  } @else {
+    line-height: $line-height;
+  }
+}
+
+@mixin aButton() {
+  display: block;
+  text-decoration: none;
+  background-color: #6688cc;
+}
+
+.aa {
+  padding: line(1);
+}
+
+.bb {
+  padding: line(2);
+}
+
+// 使用 @include 會直接在該元件放入 mixin 內之樣式。
+// 相對於用 @extend 繼承某元件樣式時，則是放在該被繼承元素樣式處。
+.aaa {
+  @include aButton();
+  font-size: font(5);
+  line-height: rhythm(font(5));
+}
+
+// .bbb使用 @mixin 較.aaa更加快速。
+.bbb {
+  @include aButton();
+  @include font(5);
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.tabList {
+  background-color: rgb(41, 150, 144);
+  height: 100vh;
+  > header {
+    > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0;
+    }
+    li {
+      display: inline-block;
+      width: $width / $buttonNumber;
+      > a {
+        // 繼承 %defaultButton 之樣式。 
+        @extend %defaultButton;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+
+  > div {
+    padding: 20px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0;
+      color: rgb(233, 179, 30);
+      h3 {
+        @include font(5);
+      }
+      p {
+        @include font(3);
+      }
+    }
+  }
+}
+
