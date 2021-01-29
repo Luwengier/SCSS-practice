@@ -15,19 +15,13 @@
     </div>
   </div>
 
-  <script src="./plugin/jquery-1.11.3.min.js"></script>
   <script>
-    $(function () {
-        $('.cross-btn').click(function () {
-          if ($(this).hasClass("active")) {
-            $(this).removeClass("active")
-            $(this).addClass("reverse")
-          } else {
-            $(this).removeClass("reverse")
-            $(this).addClass("active")
-          }
-        })
-      })
+    const crossBtn = document.querySelector('.cross-btn')
+    
+    crossBtn.addEventListener('click',function(){
+      this.classList.contains('active') ? this.classList.add('reverse') : this.classList.remove('reverse');
+      this.classList.toggle('active')
+    })
   </script>
 
 </body>
