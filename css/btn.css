@@ -1,0 +1,249 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+}
+
+.cross-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: cadetblue;
+}
+
+.cross-btn span {
+  position: absolute;
+  height: 4px;
+  width: 80%;
+  left: 10%;
+  -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  background-color: cornsilk;
+}
+
+.cross-btn span:first-child {
+  top: calc(20% - 2px);
+}
+
+.cross-btn span:nth-child(2) {
+  top: calc(50% - 2px);
+}
+
+.cross-btn span:nth-child(3) {
+  top: calc(80% - 2px);
+}
+
+/* 三條變叉叉樣式 */
+.cross-btn.active span:first-child {
+  -webkit-animation-name: cross1;
+          animation-name: cross1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.cross-btn.active span:nth-child(2) {
+  -webkit-animation-name: cross2;
+          animation-name: cross2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.cross-btn.active span:nth-child(3) {
+  -webkit-animation-name: cross3;
+          animation-name: cross3;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+/* 叉叉變三條樣式 */
+.cross-btn.reverse span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: calc(50% - 2px);
+  -webkit-animation-name: cross1r;
+          animation-name: cross1r;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.cross-btn.reverse span:nth-child(2) {
+  opacity: 0;
+  -webkit-animation-name: cross2r;
+          animation-name: cross2r;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.cross-btn.reverse span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(50% - 2px);
+  -webkit-animation-name: cross3r;
+          animation-name: cross3r;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+/* 三條變叉叉動畫 */
+@-webkit-keyframes cross1 {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+@keyframes cross1 {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+
+@-webkit-keyframes cross2 {
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cross2 {
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes cross3 {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+@keyframes cross3 {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+/* 叉叉變三條動畫 */
+@-webkit-keyframes cross1r {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(20% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes cross1r {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(20% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes cross2r {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cross2r {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes cross3r {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(80% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes cross3r {
+  50% {
+    top: calc(50% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    top: calc(80% - 2px);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+/*# sourceMappingURL=btn.css.map */

@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+}
+
+.cross-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: cadetblue;
+  span {
+    position: absolute;
+    height: 4px;
+    width: 80%;
+    left: 10%;
+    transform: translate(0%, 0%);
+    background-color: cornsilk;
+  }
+  span:first-child {
+    top: calc(20% - 2px);
+  }
+  span:nth-child(2) {
+    top: calc(50% - 2px);
+  }
+  span:nth-child(3) {
+    top: calc(80% - 2px);
+  }
+}
+
+/* 三條變叉叉樣式 */
+.cross-btn.active {
+  span:first-child {
+    animation-name: cross1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  span:nth-child(2) {
+    animation-name: cross2;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  span:nth-child(3) {
+    animation-name: cross3;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* 叉叉變三條樣式 */
+.cross-btn.reverse {
+  span:first-child {
+    transform: rotate(45deg);
+    top: calc(50% - 2px);
+    animation-name: cross1r;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  span:nth-child(2) {
+    opacity: 0;
+    animation-name: cross2r;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: calc(50% - 2px);
+    animation-name: cross3r;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* 三條變叉叉動畫 */
+@keyframes cross1 {
+  50% { top: calc(50% - 2px);transform: rotate(0deg); }
+  100% { top: calc(50% - 2px);transform: rotate(45deg);}
+}
+@keyframes cross2 {
+  49% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0;}
+}
+@keyframes cross3 {
+  50% { top: calc(50% - 2px);transform: rotate(0deg); }
+  100% { top: calc(50% - 2px);transform: rotate(-45deg);}
+}
+
+/* 叉叉變三條動畫 */
+@keyframes cross1r {
+  50% { top: calc(50% - 2px);transform: rotate(0deg); }
+  100% { top: calc(20% - 2px);transform: rotate(0deg);}
+}
+@keyframes cross2r {
+  49% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 1;}
+}
+@keyframes cross3r {
+  50% { top: calc(50% - 2px);transform: rotate(0deg); }
+  100% { top: calc(80% - 2px);transform: rotate(0deg);}
+}

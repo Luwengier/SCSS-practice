@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/btn.css">
+</head>
+<body>
+  <div>
+    <div class="cross-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <script src="./plugin/jquery-1.11.3.min.js"></script>
+  <script>
+    $(function () {
+        $('.cross-btn').click(function () {
+          if ($(this).hasClass("active")) {
+            $(this).removeClass("active")
+            $(this).addClass("reverse")
+          } else {
+            $(this).removeClass("reverse")
+            $(this).addClass("active")
+          }
+        })
+      })
+  </script>
+
+</body>
+</html>
