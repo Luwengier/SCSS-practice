@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cross Animation Button</title>
   <link rel="stylesheet" href="./css/btn.css">
 </head>
 <body>
@@ -17,11 +17,13 @@
 
   <script>
     const crossBtn = document.querySelector('.cross-btn')
-    
-    crossBtn.addEventListener('click',function(){
+
+    const btnClickHandler = function () {
       this.classList.contains('active') ? this.classList.add('reverse') : this.classList.remove('reverse');
       this.classList.toggle('active')
-    })
+    }
+    
+    crossBtn.addEventListener('click', btnClickHandler)
   </script>
 
 </body>
